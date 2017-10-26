@@ -11,7 +11,7 @@
 $rawHtml=file_get_contents("https://raw.githubusercontent.com/The2b/Fall-2017-LewisU-Web-And-Dist-Programming/master/labs/l-05-javascript-html-interaction/html-js.html");
 
 $oldScriptLine="<script type=\"text/javascript\" src=\"html-js.js\"></script>";
-$newScriptLine="<script type=\"text/javascript\" src=\"html-js-js.php\"></script>";
+$newScriptLine="<script type=\"text/javascript\" src=\"html-js-js.php\" async></script>";
 
 $changes=str_replace($oldScriptLine,$newScriptLine,$rawHtml);
 
