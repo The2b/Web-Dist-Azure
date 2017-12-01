@@ -47,26 +47,9 @@ function buildMap() {
 }
 
 function parseAddress(str) {
-	// First, find the number of commas
-	// To do this, we use the prototype function above, after turning the str into an array
 	var strTrim = str.trim();
 	//var strArray = strTrim.split("");
 	//var commaCount = strArray.countChar(",");
-
-	/*
-	// If it's less than 1, we check the space count
-	if(commaCount < 1) {
-		var spaceCount = strArray.countChar(" ");
-		// If this is equal to one, send it as an address
-		if(spaceCount == 1) {
-			var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + str + "&components=country:US" + "&key=" + "AIzaSyB1jIuVAEJsvYsGEN8iJJwegU-tPCu6Yfg"
-		}
-		// If it's 0, do a few things
-		if(spaceCount == 0) {
-			// If it's all numbers, send it as a zip
-		}
-	}
-	*/
 
 	var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + strTrim + "&components=country:US" + "&key=" + "AIzaSyB1jIuVAEJsvYsGEN8iJJwegU-tPCu6Yfg";
 
@@ -74,58 +57,6 @@ function parseAddress(str) {
 }
 
 function lookupLocation(url) {
-	/*
-	var formattedZip = zip;
-	if(zip > 99999) { // If it's more than 5 digits
-		console.log("Error: Zip not valid");
-		return;
-	}
-
-	// Pad if it's less than 5 digits
-	if(zip < 10000) {
-		var zipArr = zip.split("");
-		var len = zipArr.length;
-		for(index = 0; index < 5-len; index++) {
-			formattedZip = "0" + formattedZip;
-		}
-	}
-
-	// For this, we use the geo-coding API, just passing the ZIP as an address
-	var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + formattedZip + "&components=country:US" + "&result_type=locality|administrative_area_level_1" + "&key=" + "AIzaSyB1jIuVAEJsvYsGEN8iJJwegU-tPCu6Yfg"; // My key
-	// Either jQuery has been loaded, or the user has been warned to reload the page, so we can use it here freely.
-	// Setup AJAX mime type
-	$.ajaxSetup({
-		async: false,
-		beforeSend: function(xhr) {
-			if(xhr.overrideMimeType) {
-				xhr.overrideMimeType("application/json");
-			}
-		}
-	});
-
-	console.log("Test");
-
-	var city;
-	var state;
-	$.getJSON(url, function(data) {
-		var obj = data;
-		for(index = 0; index < data.results[0].address_components.length; index++) {
-			if(data.results[0].address_components[index]["types"].indexOf("administrative_area_level_1") != -1) {
-				state = data.results[0].address_components[index].long_name;
-			}
-			
-			else if(data.results[0].address_components[index]["types"].indexOf("locality") >= 0) {
-				city = data.results[0].address_components[index].long_name;
-			}
-		}
-	});
-
-	alert("City: " + city);
-	alert("State: " + state);
-	*/
-
-	// Either jQuery has been loaded, or the user has been warned to reload the page, so we can use it here freely.
-	// Setup AJAX mime type
 	$.ajaxSetup({
 		async: false,
 		beforeSend: function(xhr) {
